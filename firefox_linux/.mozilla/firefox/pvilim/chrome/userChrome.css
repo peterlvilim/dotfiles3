@@ -1,0 +1,5 @@
+/*in about:config set toolkit.legacyUserProfileCustomizations.stylesheets to true*/
+#tabbrowser-tabs { visibility: collapse !important; }
+#nav-bar {
+	  visibility: collapse !important;
+}
