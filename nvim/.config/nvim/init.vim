@@ -15,9 +15,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'Th3Whit3Wolf/one-nvim'
 call plug#end()
 
-
 " Misc
-set mouse=a " make mouse work
 set cmdheight=2 " more info in cmd line for quick fix
 set number " line numbers
 set hidden " Allow unsaved buffers in background
