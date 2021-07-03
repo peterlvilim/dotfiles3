@@ -1,0 +1,105 @@
+# key binds
+set $mod Mod4
+set $windowkey Mod1
+set $ctrl Ctrl
+# colors
+set $yellow   #b58900
+set $orange   #cb4b16
+set $red #c82829
+set $magenta  #d33682
+set $violet   #6c71c4
+set $blue #268bd2
+set $cyan #2aa198
+set $green    #859900
+set $baseA3 #333333
+set $baseA2 #073642
+set $baseA1 #586e75
+set $baseA0 #657b83
+set $baseB0 #839496
+set $baseB1 #93a1a1
+set $baseB2 #eee8d5
+set $baseB3 #fdf6e3
+set $custom #001b26
+
+# window and bar font
+font pango:monospace 6
+
+# start a terminal
+#bindsym $mod+Return exec urxvt -e nvim -c Term
+bindsym $mod+Return exec alacritty
+
+# kill focused window or container
+bindsym $mod+Shift+q kill
+
+# default layout
+workspace_layout tabbed
+
+# focus windows
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+a focus parent
+bindsym $mod+ctrl+h focus parent focus left
+bindsym $mod+ctrl+j focus parent focus down
+bindsym $mod+ctrl+k focus parent focus up
+bindsym $mod+ctrl+l focus parent focus right
+force_focus_wrapping yes
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+space exec --no-startup-id i3-msg move workspace to output right
+
+# split in horizontal orientation
+bindsym $mod+g focus parent split h
+
+# split in vertical orientation
+bindsym $mod+v focus parent split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+# move focused contain1er to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+
+# mouse
+focus_follows_mouse no
+mouse_warping output
+workspace_auto_back_and_forth yes
+
+# window colors
+client.focused $baseA3 $magenta $baseA3 $magenta
+client.unfocused $baseA3 $blue $baseA3 $blue
+client.focused_inactive $baseA3 $green $baseA3 $green
+
+# application launch hotkeys
+bindsym $MOD+SHIFT+f exec --no-startup-id firefox
+bindsym $MOD+SHIFT+p exec --no-startup-id zathura
+
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+
+bar {
+ status_command i3status
+}

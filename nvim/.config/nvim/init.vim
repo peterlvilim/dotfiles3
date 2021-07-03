@@ -9,7 +9,6 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-Plug 'tsuyoshicho/StatuslineUpdateTimer.vim'
 Plug 'nvim-treesitter/nvim-treesitter',
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
@@ -117,16 +116,6 @@ nnoremap <leader>wr :cd /Users/pvilim/client/desktop/rust/<CR>
 nnoremap <leader>wn :cd /Users/pvilim/client/desktop/rust/nucleus<CR>
 nnoremap <leader>ws :cd /Users/pvilim/client<CR>
 
-set updatetime=100
-function! HunkSummary()
-  let [a,m,r] = GitGutterGetHunkSummary()
-  return printf('+%d ~%d -%d', a, m, r)
-endfunction
-
-function! Time()
-  return strftime("%H:%M:%S")
-endfunction
-
 
 " Return the root directory of the project that contains 'filename'. The root
 " is detected by the presence of a file or directory named as the passed
@@ -191,13 +180,9 @@ let g:lightline = {
     \   'gitbranch': 'FugitiveHead',
     \   'gutter': 'HunkSummary',
     \   'pwd': 'getcwd',
-    \   'time': 'Time',
-    \   'clock': 'StatuslineUpdateTimer#clock',
     \   'filename': 'GetNameRelativeToProjectRoot',
     \ },
     \ }
-let g:StatuslineUpdateTimer#enable=1
-let g:StatuslineUpdateTimer#clockformat='%H:%M:%S %m/%d/%y'
 let g:airline#extensions#tabline#enabled = 1
 set showtabline=2 " always show tabline
 
