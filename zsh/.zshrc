@@ -10,13 +10,14 @@ export PATH="$PATH:$HOME/.bin"
 
 source ~/.fzf/shell/key-bindings.zsh
 source ~/.fzf/shell/completion.zsh
-alias v="nvim"
 
 source ~/.zpreztorc
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 autoload -Uz promptinit
 promptinit
 prompt powerlevel10k
+
+alias v="nvim"
+alias ls="exa"
+alias l="exa"
