@@ -21,3 +21,10 @@ prompt powerlevel10k
 alias v="nvim"
 alias ls="exa"
 alias l="exa"
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
+cd $HOME
