@@ -1,7 +1,1 @@
-zstyle ':prezto:load' pmodule \
-  'directory' \
-  'utility' \
-  'completion' \
-  'git' \
-  'prompt' \
-  'syntax-highlighting' \
+zstyle ':prezto:load' pmodule 'prompt' 'directory'
