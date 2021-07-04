@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/.zpretzo/init.zsh
+source ~/.zprezto/init.zsh
 export PATH="$PATH:$HOME/.bin"
 export PATH="$PATH:$HOME/.fzf/bin"
 
