@@ -16,6 +16,7 @@ Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
 " Misc
+set mouse=a
 set cmdheight=2 " more info in cmd line for quick fix
 set number " line numbers
 set hidden " Allow unsaved buffers in background
@@ -147,6 +148,7 @@ function! GetNameRelativeToProjectRoot()
 endfunction
 
 " Share system and nvim clipboard
+" On linux install xclip for clipboard support
 set clipboard=unnamedplus
 
 " lightline
