@@ -1,18 +1,18 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf',
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim',
 Plug 'rust-lang/rust.vim'
+Plug 'hrsh7th/nvim-compe'
 Plug 'altercation/vim-colors-solarized'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
-Plug 'nvim-lua/completion-nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
+Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-treesitter/nvim-treesitter',
 Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
-Plug 'Th3Whit3Wolf/one-nvim'
 call plug#end()
 
 " Misc
@@ -193,10 +193,9 @@ require'nvim-treesitter.configs'.setup {
     disable = { },  -- list of language that will be disabled
   },
 }
-EOF
 
-lua <<EOF
 local nvim_lsp = require("lspconfig")
+local lsp_status = require("lsp-status")
 local function setup_client(name, config)
   -- config.capabilities = vim.tbl_deep_extend("force", lsp_status.capabilities, config.capabilities or {})
 
@@ -207,17 +206,17 @@ local function setup_client(name, config)
       vim.api.nvim_buf_set_keymap(bufnr, mode, key, cmd, { noremap = true, silent = true })
     end
     set_keymap("n", "gd",         "<cmd>lua vim.lsp.buf.definition()<CR>")
-    set_keymap("n", "gr",         "<cmd>lua vim.lsp.buf.references()<CR>")
-    set_keymap("n", "gi",         "<cmd>lua vim.lsp.buf.implementation()<CR>")
-    set_keymap("n", "gy",         "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-    set_keymap("n", "K",          "<cmd>lua vim.lsp.buf.hover()<CR>")
-    set_keymap("n", "<C-k>",      "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-    set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-    set_keymap("n", "<leader>a",  "<cmd>lua vim.lsp.buf.code_action()<CR>")
-    set_keymap("n", "<leader>e",  "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })<CR>")
-    set_keymap("n", "<leader>q",  "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
-    set_keymap("n", "[g",         "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
-    set_keymap("n", "]g",         "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
+    -- set_keymap("n", "gr",         "<cmd>lua vim.lsp.buf.references()<CR>")
+    -- set_keymap("n", "gi",         "<cmd>lua vim.lsp.buf.implementation()<CR>")
+    -- set_keymap("n", "gy",         "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+    -- set_keymap("n", "K",          "<cmd>lua vim.lsp.buf.hover()<CR>")
+    -- set_keymap("n", "<C-k>",      "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+    -- set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+    -- set_keymap("n", "<leader>a",  "<cmd>lua vim.lsp.buf.code_action()<CR>")
+    -- set_keymap("n", "<leader>e",  "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })<CR>")
+    -- set_keymap("n", "<leader>q",  "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
+    -- set_keymap("n", "[g",         "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
+    -- set_keymap("n", "]g",         "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
 
     -- Invoke the custom `on_attach` function for the client, if needed
     if custom_on_attach then
@@ -282,10 +281,69 @@ setup_client("rust_analyzer", {
     };
   };
 })
-EOF
 
-imap <tab> <Plug>(completion_smart_tab)
-imap <s-tab> <Plug>(completion_smart_s_tab)
+ local compe = require("compe")
+
+vim.o.completeopt = "menuone,noselect"
+
+compe.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = "enable";
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+  source = {
+    buffer = true;
+    path = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+  };
+}
+
+local check_back_space = function()
+  local col = vim.fn.col(".") - 1
+  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+    return true
+  else
+    return false
+  end
+end
+
+-- Use tab to navigate completion menu
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return vim.api.nvim_replace_termcodes("<C-n>", true, true, true)
+  elseif check_back_space() then
+    return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
+  else
+    return vim.fn["compe#complete"]()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return vim.api.nvim_replace_termcodes("<C-p>", true, true, true)
+  else
+    return vim.api.nvim_replace_termcodes("<S-Tab>", true, true, true)
+  end
+end
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+
+-- To confirm completion, specifically useful for snippets
+vim.api.nvim_set_keymap("i", "<C-y>", "compe#confirm()", { expr = true, silent = true, noremap = true })
+
+-- To close the completion menu without making a selection
+vim.api.nvim_set_keymap("i", "<C-e>", "compe#close()", { expr = true, silent = true, noremap = true })
+EOF
 
 source ~/.config/nvim/layout.vim
 source ~/.config/nvim/terminal.vim

@@ -7,6 +7,7 @@ fi
 
 source ~/.zpretzo/init.zsh
 export PATH="$PATH:$HOME/.bin"
+export PATH="$PATH:$HOME/.fzf/bin"
 
 source ~/.fzf/shell/key-bindings.zsh
 source ~/.fzf/shell/completion.zsh
