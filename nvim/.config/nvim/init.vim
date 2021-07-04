@@ -196,8 +196,9 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 lua <<EOF
+local nvim_lsp = require("lspconfig")
 local function setup_client(name, config)
-  config.capabilities = vim.tbl_deep_extend("force", lsp_status.capabilities, config.capabilities or {})
+  -- config.capabilities = vim.tbl_deep_extend("force", lsp_status.capabilities, config.capabilities or {})
 
   local custom_on_attach = config.on_attach
   config.on_attach = function(client, bufnr)
@@ -226,6 +227,61 @@ local function setup_client(name, config)
 
   nvim_lsp[name].setup(config)
 end
+
+setup_client("rust_analyzer", {
+  root_dir = function(fname)
+    local cargo_crate_dir = nvim_lsp.util.root_pattern("Cargo.toml")(fname)
+    -- Make sure that we run `cargo metadata` in the current project dir
+    -- rather that the dir from which nvim was initially launched.
+    local cmd = "cargo metadata --no-deps --format-version 1"
+    if cargo_crate_dir ~= nil then
+      cmd = cmd .. " --manifest-path " .. nvim_lsp.util.path.join(cargo_crate_dir, "Cargo.toml")
+    end
+    local cargo_metadata = vim.fn.system(cmd)
+    local cargo_workspace_dir = nil
+    if vim.v.shell_error == 0 then
+      cargo_workspace_dir = vim.fn.json_decode(cargo_metadata)["workspace_root"]
+    end
+    -- Order of preference:
+    --   * Current workspace Cargo.toml
+    --   * Current crate Cargo.toml
+    --   * Rust project root (for non Cargo projects)
+    --   * Current git repository
+    return cargo_workspace_dir or
+      cargo_crate_dir or
+      nvim_lsp.util.root_pattern("rust-project.json")(fname) or
+      nvim_lsp.util.find_git_ancestor(fname)
+  end;
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        enable = true;
+        -- Build out of tree so that we don't cause cargo lock contention
+        extraArgs = { "--target-dir", "/tmp/rust-analyzer-check" };
+      };
+      procMacro = {
+        enable = true;
+      };
+    };
+  };
+  capabilities = {
+    textDocument = {
+      completion = {
+        completionItem = {
+          -- We need snippets for compe to fully support rust-analyzer magic
+          snippetSupport = true;
+          resolveSupport = {
+            properties = {
+              "documentation";
+              "detail";
+              "additionalTextEdits";
+            };
+          };
+        };
+      };
+    };
+  };
+})
 EOF
 
 imap <tab> <Plug>(completion_smart_tab)
