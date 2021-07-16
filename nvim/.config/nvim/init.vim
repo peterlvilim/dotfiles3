@@ -236,7 +236,7 @@ local function setup_client(name, config)
   nvim_lsp[name].setup(config)
 end
 
-setup_client("tsserver", {})
+setup_client("tsserver")
 
 setup_client("rust_analyzer", {
   root_dir = function(fname)
