@@ -1,6 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'sbdchd/neoformat'
 Plug 'junegunn/fzf',
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'kabouzeid/nvim-lspinstall'
 Plug 'junegunn/fzf.vim',
 Plug 'rust-lang/rust.vim'
 Plug 'hrsh7th/nvim-compe'
@@ -110,10 +112,15 @@ nnoremap J <C-F> " page down
 
 nnoremap <leader>w/ :cd /<CR>
 nnoremap <leader>wh :cd /Users/pvilim/<CR>
-nnoremap <leader>wc :cd /Users/pvilim/client/desktop<CR>
+nnoremap <leader>wd :cd /Users/pvilim/client/desktop<CR>
 nnoremap <leader>wr :cd /Users/pvilim/client/desktop/rust/<CR>
 nnoremap <leader>wn :cd /Users/pvilim/client/desktop/rust/nucleus<CR>
-nnoremap <leader>ws :cd /Users/pvilim/client<CR>
+nnoremap <leader>ws :cd /Users/pvilim/server<CR>
+nnoremap <leader>wg :cd /Users/pvilim/server/go/src<CR>
+nnoremap <leader>wp :cd /Users/pvilim/server/configs/proto<CR>
+nnoremap <leader>wm :cd /Users/pvilim/server/metaserver/metaservlets<CR>
+nnoremap <leader>wi :cd /Users/pvilim/server/go/src/dropbox/devtools/image_builder<CR>
+nnoremap <leader>wj :cd /Users/pvilim/server/metaserver/static/js/<CR>
 
 
 " Return the root directory of the project that contains 'filename'. The root
@@ -189,7 +196,7 @@ set showtabline=2 " always show tabline
 "treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "rust",     -- one of "all", "language", or a list of languages
+  ensure_installed = "maintained",     -- one of "all", "language", or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = { },  -- list of language that will be disabled
@@ -228,6 +235,8 @@ local function setup_client(name, config)
 
   nvim_lsp[name].setup(config)
 end
+
+setup_client("tsserver", {})
 
 setup_client("rust_analyzer", {
   root_dir = function(fname)
@@ -302,7 +311,7 @@ compe.setup {
   max_menu_width = 100;
   documentation = true;
   source = {
-    buffer = true;
+    buffer = false;
     path = true;
     nvim_lsp = true;
     nvim_lua = true;
