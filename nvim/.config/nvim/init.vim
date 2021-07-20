@@ -4,7 +4,6 @@ Plug 'junegunn/fzf',
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'junegunn/fzf.vim',
-Plug 'rust-lang/rust.vim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'altercation/vim-colors-solarized'
 Plug 'neovim/nvim-lspconfig'
@@ -91,9 +90,7 @@ augroup END
 " Maps ESC to exit terminal's insert mode
 tnoremap <Esc> <C-\><C-n>
 
-" autofmt
-"let g:rustfmt_autosave = 1
-nnoremap <leader>r :RustFmt<CR>
+nnoremap <leader>r :Neoformat<CR>
 
 """NAVIGATION"""
 " Use ctrl-[hjkl] to select the active split

@@ -1,5 +1,4 @@
 " Files to load
-cd ~/
 argadd ~/notes
 argadd ~/.config/nvim/init.vim
 argadd ~/.config/nvim/terminal.vim
