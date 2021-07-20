@@ -236,7 +236,7 @@ local function setup_client(name, config)
   nvim_lsp[name].setup(config)
 end
 
-setup_client("tsserver")
+-- setup_client("tsserver" {})
 
 setup_client("rust_analyzer", {
   root_dir = function(fname)
@@ -355,6 +355,7 @@ vim.api.nvim_set_keymap("i", "<C-y>", "compe#confirm()", { expr = true, silent =
 -- To close the completion menu without making a selection
 vim.api.nvim_set_keymap("i", "<C-e>", "compe#close()", { expr = true, silent = true, noremap = true })
 EOF
+
 
 source ~/.config/nvim/layout.vim
 source ~/.config/nvim/terminal.vim

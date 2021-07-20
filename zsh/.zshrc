@@ -8,6 +8,9 @@ fi
 source ~/.zprezto/init.zsh
 export PATH="$PATH:$HOME/.bin"
 export PATH="$PATH:$HOME/.fzf/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/Downloads/nvim/bin/"
+export EDITOR="$HOME/Downloads/nvim/bin/nvim"
 
 source ~/.fzf/shell/key-bindings.zsh
 source ~/.fzf/shell/completion.zsh
