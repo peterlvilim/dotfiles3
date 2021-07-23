@@ -1,1 +1,3 @@
-zstyle ':prezto:load' pmodule 'prompt' 'directory' 'completion'
+zstyle ':prezto:load' pmodule 'prompt' 'directory' 'completion' 'terminal'
+
+zstyle ':prezto:module:terminal' auto-title 'yes'

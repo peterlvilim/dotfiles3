@@ -162,7 +162,7 @@ let g:lightline = {
     \ 'tabline': {
     \   'left': [
     \             [ 'pwd', 'filename' ] ],
-    \   'right': [['clock'] ],
+    \   'right': [[] ],
     \ },
     \ 'inactive': {
     \   'left': [
