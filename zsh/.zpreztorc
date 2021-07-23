@@ -1,1 +1,1 @@
-zstyle ':prezto:load' pmodule 'prompt' 'directory'
+zstyle ':prezto:load' pmodule 'prompt' 'directory' 'completion'

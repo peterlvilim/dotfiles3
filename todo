@@ -1,3 +1,13 @@
 linux:
 xmodmap on input device connected
 fix blueman-applet on startup
+time before key repeat (xset)
+bluetoothctl and connect
+#share zsh history
+#completion for dir
+#fzf bindings
+#emacs bindings
+
+general:
+firefox tab up and down
+tab in zsh
