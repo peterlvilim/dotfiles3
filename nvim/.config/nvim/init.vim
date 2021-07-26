@@ -77,14 +77,12 @@ set signcolumn=yes
 nnoremap <leader>t :terminal<CR>
 augroup neovim_terminal
 autocmd!
+autocmd TermEnter * :setlocal nonumber norelativenumber
 autocmd TermOpen * :setlocal nonumber norelativenumber
 autocmd TermOpen * :setlocal signcolumn=no
 autocmd TermClose * :setlocal number norelativenumber
 autocmd TermClose * :setlocal signcolumn=yes
 autocmd TermOpen * startinsert
-"au BufEnter,BufWinEnter,WinEnter term://* :setlocal signcolumn=no
-"au BufEnter,BufWinEnter,WinEnter term://* :setlocal nonumber norelativenumber
-"au BufLeave term://* stopinsert
 augroup END
 
 " Maps ESC to exit terminal's insert mode
@@ -144,11 +142,24 @@ function! GetNameRelativeToProjectRoot()
     let project_marker = '.git'
     let project_dir = GetProjectRoot(current_filename, project_marker)
     if project_dir != ''
-        let relative_filename = current_filename[len(project_dir) + 1:]
-        return relative_filename
+        let name = current_filename[len(project_dir) + 1:]
     else
-        return expand('%:.')
+        let name = expand('%:.')
     endif
+    return get(b:,"term_title", name)
+endfunction
+
+" retrieve the LSP status so that we can show it in the lightline
+function! LspStatus() abort
+  if has("nvim-0.5") && luaeval("not vim.tbl_isempty(vim.lsp.buf_get_clients(0))")
+    let l:msg = luaeval("require('lsp-status').status()")
+    " lsp-status seems to double encode the % signs so fix that here
+    let l:msg = substitute(l:msg, "%%", "%", "")
+    " make sure that we don't overflow the line towards the left
+    return l:msg[0:(winwidth(0) - 70)]
+  else
+    return ""
+  endif
 endfunction
 
 " Share system and nvim clipboard
@@ -173,6 +184,7 @@ let g:lightline = {
     \   'left': [
     \             [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'gutter' ],
+    \             [ 'lsp_status' ],
     \             [ 'readonly', 'modified', 'filename'],
     \		  ],
     \   'right': [ [ 'linenumber' ] ],
@@ -185,9 +197,9 @@ let g:lightline = {
     \   'gutter': 'HunkSummary',
     \   'pwd': 'getcwd',
     \   'filename': 'GetNameRelativeToProjectRoot',
+    \   'lsp_status': 'LspStatus',
     \ },
     \ }
-let g:airline#extensions#tabline#enabled = 1
 set showtabline=2 " always show tabline
 
 "treesitter
@@ -214,15 +226,15 @@ local function setup_client(name, config)
     set_keymap("n", "gd",         "<cmd>lua vim.lsp.buf.definition()<CR>")
     -- set_keymap("n", "gr",         "<cmd>lua vim.lsp.buf.references()<CR>")
     -- set_keymap("n", "gi",         "<cmd>lua vim.lsp.buf.implementation()<CR>")
-    -- set_keymap("n", "gy",         "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+    set_keymap("n", "gy",         "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     -- set_keymap("n", "K",          "<cmd>lua vim.lsp.buf.hover()<CR>")
     -- set_keymap("n", "<C-k>",      "<cmd>lua vim.lsp.buf.signature_help()<CR>")
     -- set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
     -- set_keymap("n", "<leader>a",  "<cmd>lua vim.lsp.buf.code_action()<CR>")
-    -- set_keymap("n", "<leader>e",  "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })<CR>")
+    set_keymap("n", "<leader>e",  "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })<CR>")
     -- set_keymap("n", "<leader>q",  "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
-    -- set_keymap("n", "[g",         "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
-    -- set_keymap("n", "]g",         "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
+    set_keymap("n", "<leader>k",         "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
+    set_keymap("n", "<leader>j",         "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
 
     -- Invoke the custom `on_attach` function for the client, if needed
     if custom_on_attach then
@@ -323,7 +335,6 @@ local check_back_space = function()
     return false
   end
 end
-
 -- Use tab to navigate completion menu
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
@@ -341,16 +352,16 @@ _G.s_tab_complete = function()
     return vim.api.nvim_replace_termcodes("<S-Tab>", true, true, true)
   end
 end
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<C-j>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<C-j>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<C-k>", "v:lua.s_tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<C-k>", "v:lua.s_tab_complete()", { expr = true })
 
 -- To confirm completion, specifically useful for snippets
-vim.api.nvim_set_keymap("i", "<C-y>", "compe#confirm()", { expr = true, silent = true, noremap = true })
+vim.api.nvim_set_keymap("i", "<C-l>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
 
 -- To close the completion menu without making a selection
-vim.api.nvim_set_keymap("i", "<C-e>", "compe#close()", { expr = true, silent = true, noremap = true })
+vim.api.nvim_set_keymap("i", "<C-h>", "compe#close({ 'keys': '<ESC>', 'select': v:true })", { expr = true })
 EOF
 
 

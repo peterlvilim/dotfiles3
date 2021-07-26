@@ -1,4 +1,5 @@
 linux:
+auto redshift
 xmodmap on input device connected
 fix blueman-applet on startup
 time before key repeat (xset)
