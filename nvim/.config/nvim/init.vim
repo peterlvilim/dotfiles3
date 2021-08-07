@@ -225,7 +225,7 @@ local function setup_client(name, config)
     end
     set_keymap("n", "gd",         "<cmd>lua vim.lsp.buf.definition()<CR>")
     -- set_keymap("n", "gr",         "<cmd>lua vim.lsp.buf.references()<CR>")
-    -- set_keymap("n", "gi",         "<cmd>lua vim.lsp.buf.implementation()<CR>")
+    set_keymap("n", "gi",         "<cmd>lua vim.lsp.buf.implementation()<CR>")
     set_keymap("n", "gy",         "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     -- set_keymap("n", "K",          "<cmd>lua vim.lsp.buf.hover()<CR>")
     -- set_keymap("n", "<C-k>",      "<cmd>lua vim.lsp.buf.signature_help()<CR>")
