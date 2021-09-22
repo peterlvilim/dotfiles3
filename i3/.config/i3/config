@@ -22,7 +22,7 @@ set $baseB3 #fdf6e3
 set $custom #001b26
 
 # window and bar font
-font pango:monospace 6
+font pango:monospace 14
 
 # start a terminal
 #bindsym $mod+Return exec urxvt -e nvim -c Term
@@ -99,7 +99,3 @@ bindsym $MOD+SHIFT+p exec --no-startup-id zathura
 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-
-bar {
- status_command i3status
-}
