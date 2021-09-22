@@ -106,6 +106,8 @@ nnoremap K <C-B> " page up
 nnoremap J <C-F> " page down
 
 nnoremap <leader>w/ :cd /<CR>
+nnoremap <leader>w. :cd.. <CR>
+nnoremap <leader>wc :cd 
 nnoremap <leader>wh :cd /Users/pvilim/<CR>
 nnoremap <leader>wd :cd /Users/pvilim/client/desktop<CR>
 nnoremap <leader>wr :cd /Users/pvilim/client/desktop/rust/<CR>
@@ -273,6 +275,9 @@ setup_client("rust_analyzer", {
   end;
   settings = {
     ["rust-analyzer"] = {
+      cargo = {
+        features = {"quince_tests"};
+      };
       checkOnSave = {
         enable = true;
         -- Build out of tree so that we don't cause cargo lock contention
