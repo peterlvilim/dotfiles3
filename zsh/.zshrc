@@ -11,7 +11,7 @@ export PATH="$PATH:$HOME/.fzf/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/Downloads/nvim/bin/"
 export BROWSER="firefox"
-export EDITOR="nvim"
+export EDITOR="nvr"
 
 
 source ~/.zpreztorc

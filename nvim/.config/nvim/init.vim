@@ -369,6 +369,10 @@ vim.api.nvim_set_keymap("i", "<C-l>", "compe#confirm({ 'keys': '<CR>', 'select':
 vim.api.nvim_set_keymap("i", "<C-h>", "compe#close({ 'keys': '<ESC>', 'select': v:true })", { expr = true })
 EOF
 
+if has('nvim')
+  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+endif
+autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 
 source ~/.config/nvim/layout.vim
 source ~/.config/nvim/terminal.vim
