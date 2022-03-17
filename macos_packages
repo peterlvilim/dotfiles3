@@ -1,1 +1,4 @@
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install neovim
 brew install neovim-remote
+brew install php@7.4 && brew link php@7.4
