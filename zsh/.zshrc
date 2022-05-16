@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source ~/.zprezto/init.zsh
+export PATH="$PATH:/opt/homebrew/bin/"
 export PATH="$PATH:$HOME/.bin"
 export PATH="$PATH:$HOME/.fzf/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
@@ -33,5 +34,5 @@ setopt sharehistory
 # Emacs keybindings so that ctrl+a and ctrl+e work
 set -o emacs
 
-source ~/.fzf/shell/key-bindings.zsh
-source ~/.fzf/shell/completion.zsh
+#source ~/.fzf/shell/key-bindings.zsh
+#source ~/.fzf/shell/completion.zsh

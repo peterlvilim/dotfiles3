@@ -2,3 +2,7 @@
 brew install neovim
 brew install neovim-remote
 brew install php@7.4 && brew link php@7.4
+brew install rustup
+brew install exa
+brew install fzf
+brew install fd
