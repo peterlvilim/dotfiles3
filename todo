@@ -19,3 +19,9 @@ i3 auto layout
 
 work:
 shortcut for git scope in alias
+
+git:
+gitsigns plugin
+checkout commit and other workflows?
+show commit?
+blame view?
