@@ -6,3 +6,5 @@ brew install rustup
 brew install exa
 brew install fzf
 brew install fd
+brew install just
+brew install svn
