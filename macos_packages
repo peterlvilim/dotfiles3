@@ -2,3 +2,11 @@
 brew install neovim
 brew install neovim-remote
 brew install php@7.4 && brew link php@7.4
+brew install fzf
+brew install exa
+brew install svn
+brew install bat
+brew Tap homebrew/cask-fonts && brew install --cask font-source-code-pro
+brew install rust-analyzer
+brew install rustup
+brew install ripgrep

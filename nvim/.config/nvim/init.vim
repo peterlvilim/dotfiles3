@@ -1,9 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'sbdchd/neoformat'
-Plug 'junegunn/fzf',
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'kabouzeid/nvim-lspinstall'
-Plug 'junegunn/fzf.vim',
 Plug 'hrsh7th/nvim-compe'
 Plug 'altercation/vim-colors-solarized'
 Plug 'neovim/nvim-lspconfig'
@@ -12,7 +10,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'nvim-lua/lsp-status.nvim'
-Plug 'nvim-treesitter/nvim-treesitter',
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
@@ -207,10 +205,10 @@ set showtabline=2 " always show tabline
 "treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",     -- one of "all", "language", or a list of languages
+  ensure_installed = "all",     -- one of "all", "language", or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
+    disable = {"node" },  -- list of language that will be disabled
   },
 }
 
@@ -373,6 +371,7 @@ if has('nvim')
   let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 endif
 autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+
 
 source ~/.config/nvim/layout.vim
 source ~/.config/nvim/terminal.vim
