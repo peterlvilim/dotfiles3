@@ -34,5 +34,5 @@ setopt sharehistory
 # Emacs keybindings so that ctrl+a and ctrl+e work
 set -o emacs
 
-#source ~/.fzf/shell/key-bindings.zsh
-#source ~/.fzf/shell/completion.zsh
+source ~/.fzf/shell/key-bindings.zsh
+source ~/.fzf/shell/completion.zsh
