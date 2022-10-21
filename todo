@@ -25,3 +25,17 @@ gitsigns plugin
 checkout commit and other workflows?
 show commit?
 blame view?
+
+nvim:
+loc list or some way to show all errors by file and project
+navigate by function with list and fzf (tree sitter)
+fix neoformat
+highlight multiple search
+
+
+check_and_fixup_sour_apples test
+docs
+format
+clippy
+quince import 2x
+steady state with hang?

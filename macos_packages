@@ -10,3 +10,5 @@ brew Tap homebrew/cask-fonts && brew install --cask font-source-code-pro
 brew install rust-analyzer
 brew install rustup
 brew install ripgrep
+brew install fd
+brew install just

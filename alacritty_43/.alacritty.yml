@@ -33,6 +33,7 @@ colors:
     white:   '#fdf6e3' # base3
 
 font:
-  size: 7.0
+  size: 12.0
   normal:
-    family: "SourceCodePro"
+    family: "Source Code Pro"
+    style: Regular

@@ -106,6 +106,7 @@ nnoremap J <C-F> " page down
 nnoremap <leader>w/ :cd /<CR>
 nnoremap <leader>w. :cd.. <CR>
 nnoremap <leader>wc :cd 
+nnoremap <leader>wH :cd /Users/pvilim/hacks/pvilim<CR>
 nnoremap <leader>wh :cd /Users/pvilim/<CR>
 nnoremap <leader>wd :cd /Users/pvilim/client/desktop<CR>
 nnoremap <leader>wr :cd /Users/pvilim/client/desktop/rust/<CR>
