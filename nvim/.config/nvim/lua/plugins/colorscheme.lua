@@ -1,12 +1,11 @@
 return {
-  -- add gruvbox
-  { "shaunsingh/solarized.nvim" },
-
-  -- Configure LazyVim to load gruvbox
+  { "peterlvilim/solarized.nvim" },
   {
-    "shaunsingh/solarized.nvim",
-    opts = {
-      colorscheme = require("solarized").set(),
-    },
+    "peterlvilim/solarized.nvim",
+    lazy = false,
+    config = function()
+      vim.cmd("set background=dark")
+      require("solarized").set()
+    end,
   },
 }
