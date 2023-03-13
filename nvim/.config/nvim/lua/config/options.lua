@@ -4,3 +4,4 @@
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.g.mapleader = ","
+vim.opt.relativenumber = false
