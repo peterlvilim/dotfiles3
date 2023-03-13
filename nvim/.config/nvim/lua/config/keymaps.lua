@@ -16,9 +16,6 @@ map("n", "<C-w>j", ":split<CR>", { desc = "Open split down" })
 map("n", "<C-w>k", ":split<CR>", { desc = "Open split up" })
 map("n", "<C-w>l", ":vsplit<CR>", { desc = "Open split right" })
 
-map("n", "K", "<C-B>", { desc = "Page Up" })
-map("n", "J", "<C-F>", { desc = "Page Down" })
-
 map("n", "<leader>w/", ":cd /<CR>", { desc = "Navigate to fs root" })
 map("n", "<leader>w.", ":cd.. <CR>", { desc = "Navigate up a directory" })
 map("n", "<leader>wc", ":cd ", { desc = "Navigate to directory" })
