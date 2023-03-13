@@ -38,3 +38,5 @@ map(
   { desc = "Navigate to image_builder" }
 )
 map("n", "<leader>wj", ":cd /Users/pvilim/server/metaserver/static/js<CR>", { desc = "Navigate to js" })
+map("n", ";", ":", { desc = "Map ; to :" })
+map("n", "<c-t>", "<leader>ff", { desc = "Find files" })
