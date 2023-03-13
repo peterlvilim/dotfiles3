@@ -36,4 +36,6 @@ map(
 )
 map("n", "<leader>wj", ":cd /Users/pvilim/server/metaserver/static/js<CR>", { desc = "Navigate to js" })
 map("n", ";", ":", { desc = "Map ; to :" })
-map("n", "<c-t>", "<leader>ff", { desc = "Find files" })
+map("n", "<c-t>", ":Telescope find_files<CR>", { desc = "Find files" })
+map("n", "<c-y>", ":Telescope cder<CR>", { desc = "Change working directory" })
+map("n", "<c-b>", ":Telescope buffers<CR>", { desc = "Change buffer" })
