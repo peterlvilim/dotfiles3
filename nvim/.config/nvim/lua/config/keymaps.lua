@@ -39,3 +39,21 @@ map("n", ";", ":", { desc = "Map ; to :" })
 map("n", "<c-t>", ":Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<c-y>", ":Telescope cder<CR>", { desc = "Change working directory" })
 map("n", "<c-b>", ":Telescope buffers<CR>", { desc = "Change buffer" })
+
+map("n", "<leader>t", ":terminal<CR>", { desc = "Launch terminal" })
+local terminal_group = vim.api.nvim_create_augroup("neovim_terminal", { clear = true })
+vim.api.nvim_create_autocmd(
+  "TermEnter",
+  { pattern = "*", command = "setlocal nonumber norelativenumber", group = terminal_group }
+)
+vim.api.nvim_create_autocmd(
+  "TermOpen",
+  { pattern = "*", command = "setlocal nonumber norelativenumber", group = terminal_group }
+)
+vim.api.nvim_create_autocmd("TermOpen", { pattern = "*", command = "setlocal signcolumn=no", group = terminal_group })
+vim.api.nvim_create_autocmd(
+  "TermClose",
+  { pattern = "*", command = "setlocal number norelativenumber", group = terminal_group }
+)
+vim.api.nvim_create_autocmd("TermClose", { pattern = "*", command = "setlocal signcolumn=yes", group = terminal_group })
+vim.api.nvim_create_autocmd("TermOpen", { pattern = "*", command = "startinsert", group = terminal_group })
