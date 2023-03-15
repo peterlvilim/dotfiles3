@@ -1,0 +1,4 @@
+lint:
+  rules_option:
+    indent:
+      style: 4
