@@ -13,7 +13,6 @@ end
 
 return {
     {
-        {"nvim-neo-tree/neo-tree.nvim"},
         "nvim-neo-tree/neo-tree.nvim",
         dir = "/Users/pvilim/neo-tree.nvim/",
         keys = {

@@ -3,8 +3,8 @@ return {
         "LazyVim/LazyVim",
         dependences = {"kevinhwang91/promise-async"},
         keys = {
-            {'zR', ":lua require('ufo').openAllFolds<CR>", "Open all folds"},
-            {'zM', ":lua require('ufo').closeAllFolds<CR>", "Close all folds"}
+            {'zR', ":lua require('ufo').openAllFolds()<CR>", "Open all folds"},
+            {'zM', ":lua require('ufo').closeAllFolds()<CR>", "Close all folds"}
         },
         opts = function(_, opts)
             vim.o.foldcolumn = '0'

@@ -11,7 +11,7 @@ return {
 
             {
                 "<leader>gM",
-                ":lua toggle_base('origin/master')<CR>:lua toggle_neo_tree(false, nil)<CR>",
+                ":lua toggle_base('origin/' .. vim.g.gitsigns_head)<CR>:lua toggle_neo_tree(false, nil)<CR>",
                 "Git sign diff vs origin/master"
             }, {
                 "<leader>gH",
