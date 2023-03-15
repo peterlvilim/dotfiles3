@@ -19,8 +19,8 @@ map("n", "<C-w>l", ":vsplit<CR>", { desc = "Open split right" })
 map("n", "<leader>w/", ":cd /<CR>", { desc = "Navigate to fs root" })
 map("n", "<leader>w.", ":cd.. <CR>", { desc = "Navigate up a directory" })
 map("n", "<leader>wc", ":cd ", { desc = "Navigate to directory" })
-map("n", "<leader>wH", ":cd /Users/pvilim/hacks/pvilim<CR>", { desc = "Navigate to hacks" })
-map("n", "<leader>wh", ":cd /Users/pvilim/<CR>", { desc = "Navigate to home" })
+map("n", "<leader>wh", ":cd /Users/pvilim/hacks/pvilim<CR>", { desc = "Navigate to hacks" })
+map("n", "<leader>wC", ":cd /Users/pvilim/<CR>", { desc = "Navigate to home" })
 map("n", "<leader>wd", ":cd /Users/pvilim/client/desktop<CR>", { desc = "Navigate to desktop" })
 map("n", "<leader>wr", ":cd /Users/pvilim/client/desktop/rust<CR>", { desc = "Navigate to rust" })
 map("n", "<leader>wn", ":cd /Users/pvilim/client/desktop/rust/nucleus<CR>", { desc = "Navigate to nucleus" })
@@ -35,7 +35,16 @@ map(
   { desc = "Navigate to image_builder" }
 )
 map("n", "<leader>wj", ":cd /Users/pvilim/server/metaserver/static/js<CR>", { desc = "Navigate to js" })
+map(
+  "n",
+  "<leader>wt",
+  ":cd /Users/pvilim/server/go/src/dropbox/desktop_trace_search/<CR>",
+  { desc = "Navigate to desktop_trace_search" }
+)
+map("n", "<leader>wC", ":cd /Users/pvilim/.config<CR>", { desc = "Navigate to config" })
+
 map("n", ";", ":", { desc = "Map ; to :" })
+
 map("n", "<c-t>", ":Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<c-y>", ":Telescope cder<CR>", { desc = "Change working directory" })
 map("n", "<c-b>", ":Telescope buffers<CR>", { desc = "Change buffer" })
@@ -57,3 +66,11 @@ vim.api.nvim_create_autocmd(
 )
 vim.api.nvim_create_autocmd("TermClose", { pattern = "*", command = "setlocal signcolumn=yes", group = terminal_group })
 vim.api.nvim_create_autocmd("TermOpen", { pattern = "*", command = "startinsert", group = terminal_group })
+
+map(
+  "n",
+  "<leader>gM",
+  ":lua require('gitsigns').change_base('origin/master', true)<CR>",
+  { desc = "Git sign diff vs origin/master" }
+)
+map("n", "<leader>gH", ":lua require('gitsigns').change_base('HEAD', true)<CR>", { desc = "Git sign diff vs HEAD" })
