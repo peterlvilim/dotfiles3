@@ -20,7 +20,7 @@ map("n", "<leader>w/", ":cd /<CR>", { desc = "Navigate to fs root" })
 map("n", "<leader>w.", ":cd.. <CR>", { desc = "Navigate up a directory" })
 map("n", "<leader>wc", ":cd ", { desc = "Navigate to directory" })
 map("n", "<leader>wh", ":cd /Users/pvilim/hacks/pvilim<CR>", { desc = "Navigate to hacks" })
-map("n", "<leader>wC", ":cd /Users/pvilim/<CR>", { desc = "Navigate to home" })
+map("n", "<leader>wH", ":cd /Users/pvilim/<CR>", { desc = "Navigate to home" })
 map("n", "<leader>wd", ":cd /Users/pvilim/client/desktop<CR>", { desc = "Navigate to desktop" })
 map("n", "<leader>wr", ":cd /Users/pvilim/client/desktop/rust<CR>", { desc = "Navigate to rust" })
 map("n", "<leader>wn", ":cd /Users/pvilim/client/desktop/rust/nucleus<CR>", { desc = "Navigate to nucleus" })
@@ -74,3 +74,5 @@ map(
   { desc = "Git sign diff vs origin/master" }
 )
 map("n", "<leader>gH", ":lua require('gitsigns').change_base('HEAD', true)<CR>", { desc = "Git sign diff vs HEAD" })
+
+map("n", "<c-e>", ":Neotree source=git_status<CR>", { desc = "Find files" })
