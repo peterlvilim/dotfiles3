@@ -4,7 +4,7 @@ local actions = require("telescope.actions")
 return {
   "telescope.nvim",
   keys = {
-    { "<c-t>", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+    { "<c-t>", Util.telescope("files", { cwd = false }),           desc = "Find Files (cwd)" },
     { "<c-b>", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
   },
   opts = {
