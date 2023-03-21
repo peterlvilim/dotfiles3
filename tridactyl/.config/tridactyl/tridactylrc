@@ -1,0 +1,11 @@
+" General Settings
+set update.lastchecktime 1679272907579
+set configversion 2.0
+set newtab www.google.com
+
+" Binds
+bind K tabprev
+bind J tabnext
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=tridactyl

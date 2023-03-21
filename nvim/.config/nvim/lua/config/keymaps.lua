@@ -94,3 +94,4 @@ map("n", "<leader>gH", ":lua require('gitsigns').change_base('HEAD', true)<CR>",
     {desc = "Git sign diff vs HEAD"})
 
 map("n", "<c-e>", ":Neotree source=git_status<CR>", {desc = "Find files"})
+map("t", "<Esc>", [[<C-\><C-n>]], {desc = "Exit terminal mode"})
