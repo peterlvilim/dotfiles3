@@ -16,35 +16,35 @@ map("n", "<C-w>j", ":split<CR>", {desc = "Open split down"})
 map("n", "<C-w>k", ":split<CR>", {desc = "Open split up"})
 map("n", "<C-w>l", ":vsplit<CR>", {desc = "Open split right"})
 
-map("n", "<leader>w/", ":cd /<CR>", {desc = "Navigate to fs root"})
-map("n", "<leader>w.", ":cd.. <CR>", {desc = "Navigate up a directory"})
-map("n", "<leader>wc", ":cd ", {desc = "Navigate to directory"})
-map("n", "<leader>wh", ":cd /Users/pvilim/hacks/pvilim<CR>",
+map("n", "<leader>w/", ":tcd /<CR>", {desc = "Navigate to fs root"})
+map("n", "<leader>w.", ":tcd.. <CR>", {desc = "Navigate up a directory"})
+map("n", "<leader>wc", ":tcd ", {desc = "Navigate to directory"})
+map("n", "<leader>wh", ":tcd /Users/pvilim/hacks/pvilim<CR>",
     {desc = "Navigate to hacks"})
-map("n", "<leader>wH", ":cd /Users/pvilim/<CR>", {desc = "Navigate to home"})
-map("n", "<leader>wd", ":cd /Users/pvilim/client/desktop<CR>",
+map("n", "<leader>wH", ":tcd /Users/pvilim/<CR>", {desc = "Navigate to home"})
+map("n", "<leader>wd", ":tcd /Users/pvilim/client/desktop<CR>",
     {desc = "Navigate to desktop"})
-map("n", "<leader>wr", ":cd /Users/pvilim/client/desktop/rust<CR>",
+map("n", "<leader>wr", ":tcd /Users/pvilim/client/desktop/rust<CR>",
     {desc = "Navigate to rust"})
-map("n", "<leader>wn", ":cd /Users/pvilim/client/desktop/rust/nucleus<CR>",
+map("n", "<leader>wn", ":tcd /Users/pvilim/client/desktop/rust/nucleus<CR>",
     {desc = "Navigate to nucleus"})
-map("n", "<leader>ws", ":cd /Users/pvilim/server<CR>",
+map("n", "<leader>ws", ":tcd /Users/pvilim/server<CR>",
     {desc = "Navigate to server"})
-map("n", "<leader>wg", ":cd /Users/pvilim/server/go<CR>",
+map("n", "<leader>wg", ":tcd /Users/pvilim/server/go<CR>",
     {desc = "Navigate to go"})
-map("n", "<leader>wp", ":cd /Users/pvilim/server/configs/proto<CR>",
+map("n", "<leader>wp", ":tcd /Users/pvilim/server/configs/proto<CR>",
     {desc = "Navigate to protos"})
-map("n", "<leader>wm", ":cd /Users/pvilim/server/metaserver/metaservlets<CR>",
+map("n", "<leader>wm", ":tcd /Users/pvilim/server/metaserver/metaservlets<CR>",
     {desc = "Navigate to metaservlets"})
 map("n", "<leader>wi",
-    ":cd /Users/pvilim/server/go/src/dropbox/devtools/image_builder<CR>",
+    ":tcd /Users/pvilim/server/go/src/dropbox/devtools/image_builder<CR>",
     {desc = "Navigate to image_builder"})
-map("n", "<leader>wj", ":cd /Users/pvilim/server/metaserver/static/js<CR>",
+map("n", "<leader>wj", ":tcd /Users/pvilim/server/metaserver/static/js<CR>",
     {desc = "Navigate to js"})
 map("n", "<leader>wt",
-    ":cd /Users/pvilim/server/go/src/dropbox/desktop_trace_search/<CR>",
+    ":tcd /Users/pvilim/server/go/src/dropbox/desktop_trace_search/<CR>",
     {desc = "Navigate to desktop_trace_search"})
-map("n", "<leader>wC", ":cd /Users/pvilim/.config<CR>",
+map("n", "<leader>wC", ":tcd /Users/pvilim/.config<CR>",
     {desc = "Navigate to config"})
 
 map("n", ";", ":", {desc = "Map ; to :"})
@@ -59,6 +59,11 @@ local terminal_group = vim.api.nvim_create_augroup("neovim_terminal",
 vim.api.nvim_create_autocmd("TermEnter", {
     pattern = "*",
     command = "setlocal nonumber norelativenumber",
+    group = terminal_group
+})
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "term://*",
+    command = "startinsert",
     group = terminal_group
 })
 vim.api.nvim_create_autocmd("TermOpen", {
@@ -94,4 +99,16 @@ map("n", "<leader>gH", ":lua require('gitsigns').change_base('HEAD', true)<CR>",
     {desc = "Git sign diff vs HEAD"})
 
 map("n", "<c-e>", ":Neotree source=git_status<CR>", {desc = "Find files"})
+
 map("t", "<Esc>", [[<C-\><C-n>]], {desc = "Exit terminal mode"})
+map("t", "<C-j>", [[<C-\><C-n>:wincmd j<CR>]],
+    {desc = "Move down but stay terminal mode"})
+map("t", "<C-k>", [[<C-\><C-n>:wincmd k<CR>]],
+    {desc = "Move up but stay terminal mode"})
+map("t", "<C-h>", [[<C-\><C-n>:wincmd h<CR>]],
+    {desc = "Move left but stay terminal mode"})
+map("t", "<C-l>", [[<C-\><C-n>:wincmd l<CR>]],
+    {desc = "Move right but stay terminal mode"})
+map("n", "<leader>/,
+    "Telescope live_grep<CR>",
+    {desc = "Live grep pwd"})
