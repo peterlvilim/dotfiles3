@@ -1,2 +1,1 @@
-yabai -m rule --add title="^Cisco AnyConnect Secure Mobility Client$" manage=off
-yabai -m rule --add app="^.*System.*$" manage=off
+yabai -m rule --add title=".*Cisco.*" manage=off

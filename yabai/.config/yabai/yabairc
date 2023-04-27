@@ -1,0 +1,3 @@
+yabai -m config layout bsp
+yabai -m rule --add app="Cisco AnyConnect Secure Mobility Client" manage=off
+yabai -m rule --add app="System Settings" manage=off
