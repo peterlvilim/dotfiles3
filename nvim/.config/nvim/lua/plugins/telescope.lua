@@ -14,10 +14,10 @@ return {
         defaults = {
             mappings = {
                 i = {
-                    ["<c-j>"] = function(...)
+                    ["<c-f>"] = function(...)
                         return actions.move_selection_next(...)
                     end,
-                    ["<c-k>"] = function(...)
+                    ["<c-u>"] = function(...)
                         return actions.move_selection_previous(...)
                     end
                 }

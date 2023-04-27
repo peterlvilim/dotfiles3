@@ -44,4 +44,4 @@ font:
     style: Italic
   size: 12.0
 window:
-  decorations: None
+  decorations: none

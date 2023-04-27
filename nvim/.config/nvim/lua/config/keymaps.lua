@@ -49,8 +49,13 @@ map("n", "<leader>wC", ":tcd /Users/pvilim/.config<CR>",
 
 map("n", ";", ":", {desc = "Map ; to :"})
 
-map("n", "<c-t>", ":Telescope find_files<CR>", {desc = "Find files"})
-map("n", "<c-y>", ":Telescope cder<CR>", {desc = "Change working directory"})
+map("n", "<c-t>", ":tabprev<CR>", {desc = "Previous tab"})
+map("n", "<c-y>", ":tabnext<CR>", {desc = "Next tab"})
+map("t", "<c-t>", [[<C-\><C-n>:tabprev<CR>]], {desc = "Previous tab"})
+map("t", "<c-y>", [[<C-\><C-n>:tabnext<CR>]], {desc = "Next tab"})
+map("n", "<leader>sT", ":Telescope find_files<CR>", {desc = "Find files"})
+map("n", "<leader>sY", ":Telescope cder<CR>",
+    {desc = "Change working directory"})
 map("n", "<c-b>", ":Telescope buffers<CR>", {desc = "Change buffer"})
 
 map("n", "<leader>t", ":terminal<CR>", {desc = "Launch terminal"})

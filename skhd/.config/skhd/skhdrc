@@ -1,0 +1,5 @@
+cmd - h: yabai -m space --focus prev
+cmd - l: yabai -m space --focus next
+cmd + shift - h: yabai -m space --move prev
+cmd + shift - l: yabai -m space --move next
+cmd + shift - return: /Applications/Alacritty.app/Contents/MacOS/alacritty
