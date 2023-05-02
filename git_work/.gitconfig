@@ -1,3 +1,5 @@
+[core]
+  pager = delta
 [user]
 	name = Peter Vilim
 	email = pvilim@dropbox.com

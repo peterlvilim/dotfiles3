@@ -17,14 +17,14 @@ return {
         dir = "/Users/pvilim/neo-tree.nvim/",
         keys = {
             {
-                "<leader>ff", ":lua toggle_neo_tree(true, 'filesystem')<CR>",
+                "<leader>nf", ":lua toggle_neo_tree(true, 'filesystem')<CR>",
                 "Toggle file viewer"
             }, {
-                "<leader>fg", ":lua toggle_neo_tree(true, 'git_status')<CR>",
+                "<leader>ng", ":lua toggle_neo_tree(true, 'git_status')<CR>",
                 "Toggle git viewer"
             },
             {
-                "<leader>fb", ":lua toggle_neo_tree(true, 'buffers')<CR>",
+                "<leader>nb", ":lua toggle_neo_tree(true, 'buffers')<CR>",
                 "Toggle buffers"
             }
         },

@@ -1,10 +1,1 @@
-return {
-  {
-    "akinsho/bufferline.nvim",
-    opts = {
-      options = {
-        mode = "tabs",
-      },
-    },
-  },
-}
+return {{"akinsho/bufferline.nvim", disabled = true}}

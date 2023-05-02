@@ -1,5 +1,27 @@
+### Spaces
+# focus
 cmd - h: yabai -m space --focus prev
 cmd - l: yabai -m space --focus next
+
+# create/destroy
+cmd + shift - return: /Users/pvilim/.config/yabai/create_space.py
+cmd + shift - q: /Users/pvilim/.config/yabai/destroy_space.py
+
+# move
 cmd + shift - h: yabai -m space --move prev
 cmd + shift - l: yabai -m space --move next
-cmd + shift - return: /Applications/Alacritty.app/Contents/MacOS/alacritty
+
+### Windows
+# focus
+alt - h: yabai -m window --focus prev
+alt - l: yabai -m window --focus next
+
+# create/destroy
+alt + shift - q: /Users/pvilim/.config/yabai/destroy_window.py
+
+# move
+alt + shift - h: yabai -m window --swap prev
+alt + shift - l: yabai -m window --swap next
+
+# firefox launch
+# connect vpn hot key
