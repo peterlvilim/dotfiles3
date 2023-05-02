@@ -45,6 +45,10 @@ return {
             desc = "lsp document symbols"
         }, {
             "<leader>fD",
+            function() require("fzf-lua").lsp_workspace_symbols() end,
+            desc = "lsp workspace symbols"
+        }, {
+            "<leader>fe",
             function() require("fzf-lua").diagnostics_workspace() end,
             desc = "lsp workspace diagnostics"
         }
