@@ -3,6 +3,7 @@
 
 //browserBg.windows.getCurrent().then((win) => {document.title = win.title})
 //js browser.runtime.sendMessage('simple-tab-groups@drive4ik', {action: 'get-current-group', windowId: 3}).then(group => console.log("Current group:", group));
+//js browser.runtime.sendMessage('simple-tab-groups@drive4ik', {action: 'are-you-here'}).then(group => console.log("Current group:", group));
 //browserBg.windows.getCurrent().then((win) => {console.log(win)})
 //js browser.windows.getCurrent()
 //simple-tab-groups@drive4ik
