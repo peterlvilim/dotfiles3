@@ -1,4 +1,11 @@
-browserBg.windows.getCurrent().then((win) => {document.title = win.title})
+//browser.runtime.sendMessage({action: 'getActiveGroup'}).then(function(response) {console.log(response.groupName);})
+//browserBg.runtime.sendMessage({action: 'getActiveGroup'}).then(function(response) {console.log(response.groupName);})
+
+//browserBg.windows.getCurrent().then((win) => {document.title = win.title})
+//js browser.runtime.sendMessage('simple-tab-groups@drive4ik', {action: 'get-current-group', windowId: 3}).then(group => console.log("Current group:", group));
+//browserBg.windows.getCurrent().then((win) => {console.log(win)})
+//js browser.windows.getCurrent()
+//simple-tab-groups@drive4ik
 
 /*
 tri.dont_loop = false

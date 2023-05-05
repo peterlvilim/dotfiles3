@@ -17,8 +17,10 @@ return {
                 sources = {
                     nls.builtins.formatting.lua_format,
                     nls.builtins.formatting.gofmt,
-                    nls.builtins.formatting.rustfmt.with({cwd = return_root}),
-                    nls.builtins.formatting.protolint
+                    nls.builtins.formatting.rustfmt.with({
+                        cwd = return_root,
+                        args = {"--edition=2018"}
+                    }), nls.builtins.formatting.protolint
                 }
             }
         end
