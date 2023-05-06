@@ -1,5 +1,39 @@
 - ( ) tab line improvements
 -- ( ) show location
+-- how to keep more than four rust windows open
+- formatting
+-- fix cwd detection
 - ( ) lsp
+-- learn new hot keys
+-- fix feature flags for FP
+-- fix error when loading lua files
 -- ( ) debug failure to give errors
 -- ( ) debounce 
+-- ( ) handle failure if cargo.toml changes
+- ( ) tree sitter
+-- ( ) get info view working
+- ( ) solarized
+-- ( ) list of other things that don't work
+- sessions
+-- save to file support
+- fzf
+-- man pages and docs?
+--  jump by relative path
+-- nativate by hunk
+-- configure chafa
+-- fix terminal auto complete
+- research and fix surrounds
+- scroll terminal with c-f and c-u
+- nvim ui show or not
+- name firefox tabs
+- manage firefox tabs with simple tabs thing
+- menu for workspaces
+- browser and terminal in same space
+- share language servers?
+- share nvim buffers
+- auto load yabai
+- auto place windows
+- session management for firefox and nvim-share
+- share rust between cargo and rust-analyzer or do separate builds
+- quince no recompile
+- session management (expand all this with worksapces etc)

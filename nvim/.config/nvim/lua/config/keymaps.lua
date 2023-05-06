@@ -11,6 +11,8 @@ local function map(mode, lhs, rhs, opts)
         vim.keymap.set(mode, lhs, rhs, opts)
     end
 end
+map("i", "<CapsLock>", "<Esc>", {desc = "caps to esc"})
+
 map("n", "<C-w>h", ":vsplit<CR>", {desc = "Open split left"})
 map("n", "<C-w>j", ":split<CR>", {desc = "Open split down"})
 map("n", "<C-w>k", ":split<CR>", {desc = "Open split up"})
