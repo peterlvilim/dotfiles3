@@ -116,4 +116,9 @@ map("t", "<C-h>", [[<C-\><C-n>:wincmd h<CR>]],
     {desc = "Move left but stay terminal mode"})
 map("t", "<C-l>", [[<C-\><C-n>:wincmd l<CR>]],
     {desc = "Move right but stay terminal mode"})
+map("t", "<C-u>", [[<C-\><C-n><C-u>]],
+    {desc = "scroll up by a page in terminal"})
+map("t", "<C-f>", [[<C-\><C-n><C-f>]],
+    {desc = "scroll down by a page in terminal"})
+
 map("n", "<leader>/", ":Telescope live_grep<CR>", {desc = "Live grep pwd"})
