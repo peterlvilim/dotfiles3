@@ -55,10 +55,6 @@ map("n", "<c-t>", ":tabprev<CR>", {desc = "Previous tab"})
 map("n", "<c-y>", ":tabnext<CR>", {desc = "Next tab"})
 map("t", "<c-t>", [[<C-\><C-n>:tabprev<CR>]], {desc = "Previous tab"})
 map("t", "<c-y>", [[<C-\><C-n>:tabnext<CR>]], {desc = "Next tab"})
-map("n", "<leader>sT", ":Telescope find_files<CR>", {desc = "Find files"})
-map("n", "<leader>sY", ":Telescope cder<CR>",
-    {desc = "Change working directory"})
-map("n", "<c-b>", ":Telescope buffers<CR>", {desc = "Change buffer"})
 
 map("n", "<leader>t", ":terminal<CR>", {desc = "Launch terminal"})
 local terminal_group = vim.api.nvim_create_augroup("neovim_terminal",
@@ -120,5 +116,3 @@ map("t", "<C-u>", [[<C-\><C-n><C-u>]],
     {desc = "scroll up by a page in terminal"})
 map("t", "<C-f>", [[<C-\><C-n><C-f>]],
     {desc = "scroll down by a page in terminal"})
-
-map("n", "<leader>/", ":Telescope live_grep<CR>", {desc = "Live grep pwd"})

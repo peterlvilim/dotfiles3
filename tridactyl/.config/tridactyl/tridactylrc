@@ -7,4 +7,5 @@ set newtab www.google.com
 bind K tabprev
 bind J tabnext
 
-"autocmd DocLoad .* js browserBg.windows.getCurrent().then((win) => {document.title = win.title})
+autocmd DocLoad .* js -s /Users/pvilim/.config/tridactyl/update_title.js
+autocmd TabEnter .* js -s /Users/pvilim/.config/tridactyl/update_title.js

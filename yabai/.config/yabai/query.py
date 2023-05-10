@@ -1,5 +1,7 @@
 import json
 import subprocess
+import plistlib
+
 def current_space():
     return json.loads(subprocess.check_output("yabai -m query --spaces --space", shell=True))
 
@@ -23,3 +25,6 @@ def close_space(id):
 
 def create_space():
     subprocess.check_output("yabai -m space --create", shell=True)
+
+def testing():
+    return plistlib.loads(subprocess.check_output("defaults read com.apple.spaces", shell=True))

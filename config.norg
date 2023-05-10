@@ -4,9 +4,9 @@
 - ( ) formatting
 -- ( ) fix cwd detection
 - ( ) lsp
--- learn new hot keys
--- fix feature flags for FP
--- fix error when loading lua files
+-- ( ) learn new hot keys
+-- ( ) fix feature flags for FP
+-- ( ) fix error when loading lua files
 -- ( ) debug failure to give errors
 -- ( ) debounce 
 -- ( ) handle failure if cargo.toml changes
@@ -14,6 +14,7 @@
 -- ( ) get info view working
 - ( ) solarized
 -- ( ) list of other things that don't work
+-- ( ) push diff
 - ( ) sessions
 -- ( ) save to file support
 - ( ) fzf
@@ -25,8 +26,11 @@
 - ( ) research and fix surrounds
 - (x) scroll terminal with c-f and c-u
 - ( ) nvim ui show or not
-- ( ) name firefox tabs
+- (x) name firefox tabs
 - ( ) manage firefox tabs with simple tabs thing
+- test out tridactyl tab management
+-- doesn't work out due not being able to share groups between windows? but is that problem?
+-- tab loading on startup?
 - ( ) menu for workspaces
 - ( ) browser and terminal in same space
 - ( ) share language servers?
@@ -36,4 +40,17 @@
 - ( ) session management for firefox and nvim-share
 - ( ) share rust between cargo and rust-analyzer or do separate builds
 - ( ) quince no recompile
-- ( ) session management (expand all this with worksapces etc)
+- (x) session management (expand all this with worksapces etc)
+-- (x) do custom bar and name in custom bar and abandon the macos ones since need swizzling etc
+-- switch and name workspaces
+-- move messengers to some other workspace
+-- send window to another workspace
+-- launch apps?
+- status bar
+-- get rid of simple bar since too much lag?
+-- current workspace and name
+-- app of current workspace
+-- wifi, times,
+-- current task?
+- neorg
+-- agenda view

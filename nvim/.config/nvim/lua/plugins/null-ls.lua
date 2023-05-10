@@ -16,6 +16,7 @@ return {
                 debug = true,
                 sources = {
                     nls.builtins.formatting.lua_format,
+                    nls.builtins.formatting.prettier,
                     nls.builtins.formatting.gofmt,
                     nls.builtins.formatting.rustfmt.with({
                         cwd = return_root,
