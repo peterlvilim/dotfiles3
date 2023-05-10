@@ -23,6 +23,9 @@
 -- ( ) nativate by hunk
 -- ( ) configure chafa
 -- ( ) fix terminal auto complete
+-- rename file in nvim
+-- make new file in nvim
+-- delete file in nvim
 - ( ) research and fix surrounds
 - (x) scroll terminal with c-f and c-u
 - ( ) nvim ui show or not
