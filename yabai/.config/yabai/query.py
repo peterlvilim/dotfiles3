@@ -20,8 +20,11 @@ def get_current_window():
 def kill_process(pid):
     subprocess.check_output("kill -9 {}".format(pid), shell=True)
 
-def close_space(id):
-    subprocess.check_output("/usr/local/bin/yabai -m space --destroy {}".format(id), shell=True)
+def close_space(index):
+    subprocess.check_output("/usr/local/bin/yabai -m space --destroy {}".format(index), shell=True)
+
+def focus_space(index):
+    subprocess.check_output("/usr/local/bin/yabai -m space --focus {}".format(index), shell=True)
 
 def create_space():
     subprocess.check_output("/usr/local/bin/yabai -m space --create", shell=True)

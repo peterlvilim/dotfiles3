@@ -4,12 +4,15 @@ cmd - h: yabai -m space --focus prev
 cmd - l: yabai -m space --focus next
 
 # create/destroy
-cmd + shift - return: /Users/pvilim/.config/yabai/create_space.py
 cmd + shift - q: /Users/pvilim/.config/yabai/destroy_space.py
+cmd + shift - return: /Applications/Alacritty.app/Contents/MacOS/alacritty -t CHOOSE -e "/Users/pvilim/.config/yabai/choose.py"
 
 # move
 cmd + shift - h: yabai -m space --move prev
 cmd + shift - l: yabai -m space --move next
+
+# rotate
+cmd - j: yabai -m space --rotate 90
 
 ### Windows
 # focus

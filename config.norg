@@ -61,9 +61,39 @@
 -- current task?
 -- network state
 -- vpn state
+-- re-render bar on state change of label
 - neorg
 -- agenda view
+-- todo for traces improvements
 - fix naming pre-pending which has both work and personal when moving tabs between groups
 - create new workspace if move to spot?
 - one terminal per thing and just go back to that? what about <leader>t<number>?
 - double tab to go back?
+
+- windows, spaces, buffers, tabs
+-- spaces
+--- cmd
+--- (x) cmd+shift+hl to move
+--- (x) cmd+hl to focus
+--- (x) cmd+number to focus
+--- cmd+number to toggle focus
+--- (x) cmd+jk to change orientation of windows
+--- rename support
+-- windows
+--- auto dump new windows to some space
+--- open -N menu for new apps
+--- option
+--- move to space
+--- move from space
+--- balance or expand sizes
+--- (x) option hl to move between
+
+-- buffers and browser tabs
+--- ctrl
+- record all brew commands
+
+- launcher
+-- full menu of every option then filter instead of multiple sub menus
+
+- fix background color for wallpaper
+- no shadows for windows

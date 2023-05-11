@@ -14,4 +14,4 @@ if result == 'create new\n':
     query.create_space()
 else:
     index = result.split('-')[0].strip(' ')
-    query.close_space(index)
+    query.focus_space(index)
