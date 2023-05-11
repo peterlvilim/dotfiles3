@@ -1,5 +1,5 @@
-- ( ) tab line improvements
--- ( ) show location
+- (-) tab line improvements
+-- (x) show location
 -- ( ) how to keep more than four rust windows open
 - ( ) formatting
 -- ( ) fix cwd detection
@@ -23,6 +23,10 @@
 -- ( ) nativate by hunk
 -- ( ) configure chafa
 -- ( ) fix terminal auto complete
+-- create file
+-- create dir
+-- move item
+-- other fs actions?
 -- rename file in nvim
 -- make new file in nvim
 -- delete file in nvim
@@ -50,10 +54,16 @@
 -- send window to another workspace
 -- launch apps?
 - status bar
--- get rid of simple bar since too much lag?
--- current workspace and name
+-- (x) get rid of simple bar since too much lag?
+-- (x) current workspace and name
 -- app of current workspace
--- wifi, times,
+-- (x) current time
 -- current task?
+-- network state
+-- vpn state
 - neorg
 -- agenda view
+- fix naming pre-pending which has both work and personal when moving tabs between groups
+- create new workspace if move to spot?
+- one terminal per thing and just go back to that? what about <leader>t<number>?
+- double tab to go back?
