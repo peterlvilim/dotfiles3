@@ -31,3 +31,6 @@ def create_space():
 
 def testing():
     return plistlib.loads(subprocess.check_output("defaults read com.apple.spaces", shell=True))
+
+def set_space_name(index, new_name):
+    return subprocess.check_output("/usr/local/bin/yabai -m space {} --label {}".format(index, new_name), shell=True)

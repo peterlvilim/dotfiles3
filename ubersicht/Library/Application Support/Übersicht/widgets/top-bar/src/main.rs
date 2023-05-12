@@ -18,7 +18,7 @@ struct OutputTime {
 }
 use chrono_tz;
 
-use chrono::{DateTime, Datelike, Local, Offset, TimeZone, Timelike, Utc, Weekday};
+use chrono::{Datelike, Timelike, Utc, Weekday};
 
 fn get_date_time(tzs: Vec<(String, Tz)>) -> (DateGroup, DateGroup) {
     let mut group_one = DateGroup {
@@ -108,6 +108,8 @@ fn get_workspaces() -> Vec<Workspace> {
     }
     return workspaces;
 }
+// debounce?
+// json file for struct
 
 fn main() {
     let workspaces = get_workspaces();

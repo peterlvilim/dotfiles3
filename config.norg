@@ -38,8 +38,8 @@
 - test out tridactyl tab management
 -- doesn't work out due not being able to share groups between windows? but is that problem?
 -- tab loading on startup?
-- ( ) menu for workspaces
-- ( ) browser and terminal in same space
+- (x) menu for workspaces
+- (x) browser and terminal in same space
 - ( ) share language servers?
 - ( ) share nvim buffers
 - ( ) auto load yabai
@@ -62,6 +62,7 @@
 -- network state
 -- vpn state
 -- re-render bar on state change of label
+-- slack unread
 - neorg
 -- agenda view
 -- todo for traces improvements
@@ -78,7 +79,8 @@
 --- (x) cmd+number to focus
 --- cmd+number to toggle focus
 --- (x) cmd+jk to change orientation of windows
---- rename support
+--- (x) rename support
+-- show number of windows in tab line? maybe icons?
 -- windows
 --- auto dump new windows to some space
 --- open -N menu for new apps
@@ -93,7 +95,24 @@
 - record all brew commands
 
 - launcher
--- full menu of every option then filter instead of multiple sub menus
+-- (x) full menu of every option then filter instead of multiple sub menus
+-- (x) new app
+-- push to space
+-- (x) grab from space
+-- firefox tabs
+-- vim buffers
+-- jump to window
+-- one launcher type key per type (space vs window launcher?)
+-- close space
+-- close window
+-- close tab or buffer
+
 
 - fix background color for wallpaper
 - no shadows for windows
+- how to handle more than 10 workspaces and trees of workspaces?
+-- maybe do command plus some other key for over 10
+-- auto close workspaces with no windows?
+
+- hiding and showing windows for space reasons?
+- reconfigure vim into common split configs easily?

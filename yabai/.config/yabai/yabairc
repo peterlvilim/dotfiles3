@@ -3,4 +3,5 @@ yabai -m rule --add app="Cisco AnyConnect Secure Mobility Client" manage=off
 yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Strongbox" manage=off
 yabai -m rule --add app="Nudge" manage=off
+yabai -m rule --add title=".*CHOOSE.*" manage=off
 yabai -m signal --add event=application_launched app="Nudge" action="yabai -m window --minimize"

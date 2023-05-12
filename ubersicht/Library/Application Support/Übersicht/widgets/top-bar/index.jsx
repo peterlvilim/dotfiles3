@@ -136,12 +136,14 @@ export const render = (new_state, error) => {
         ))}
       </div>
       <div className={dateGroupOuter}>
-        <DateContainer
-          weekday={new_state.date_group_1.weekday}
-          month={new_state.date_group_1.month}
-          day={new_state.date_group_1.day}
-          times={new_state.date_group_1.times}
-        />
+        {new_state.date_group_1.times.length > 0 && (
+          <DateContainer
+            weekday={new_state.date_group_1.weekday}
+            month={new_state.date_group_1.month}
+            day={new_state.date_group_1.day}
+            times={new_state.date_group_1.times}
+          />
+        )}
         <DateContainer
           weekday={new_state.date_group_2.weekday}
           month={new_state.date_group_2.month}
