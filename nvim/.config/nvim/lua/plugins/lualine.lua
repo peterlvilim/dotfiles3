@@ -1,3 +1,4 @@
+local function current_directory() return vim.fn.getcwd() end
 return {
     {
         "nvim-lualine/lualine.nvim",
@@ -25,7 +26,7 @@ return {
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = {},
-                lualine_z = {}
+                lualine_z = {current_directory}
             }
         }
     }

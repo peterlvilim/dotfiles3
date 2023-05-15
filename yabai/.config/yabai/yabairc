@@ -1,7 +1,17 @@
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
 yabai -m config layout bsp
 yabai -m rule --add app="Cisco AnyConnect Secure Mobility Client" manage=off
 yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Strongbox" manage=off
 yabai -m rule --add app="Nudge" manage=off
 yabai -m rule --add title=".*CHOOSE.*" manage=off
+yabai -m rule --add title=".*Telegram.*" space=messengers
+yabai -m rule --add title=".*Messenger.*" space=messengers
+yabai -m rule --add title=".*WhatsApp.*" space=messengers
+yabai -m rule --add app="Messages" space=messengers
 yabai -m signal --add event=application_launched app="Nudge" action="yabai -m window --minimize"

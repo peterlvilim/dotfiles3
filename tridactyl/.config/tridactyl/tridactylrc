@@ -6,6 +6,9 @@ set newtab www.google.com
 " Binds
 bind K tabprev
 bind J tabnext
+bind J tabnext
+bind <C-q> tabclose
 
 autocmd DocLoad .* js -s /Users/pvilim/.config/tridactyl/update_title.js
 autocmd TabEnter .* js -s /Users/pvilim/.config/tridactyl/update_title.js
+autocmd TabLeft .* js -s /Users/pvilim/.config/tridactyl/update_title.js

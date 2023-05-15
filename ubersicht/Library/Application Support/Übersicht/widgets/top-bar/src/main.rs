@@ -1,7 +1,10 @@
+mod internet;
+
 use chrono_tz::Tz;
+use internet::{debounce, have_internet, Internet};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use std::process::Command;
+use std::{path::PathBuf, process::Command, time::Duration};
 
 #[derive(Debug, Serialize, Deserialize)]
 struct DateGroup {
@@ -78,6 +81,7 @@ struct Output {
     spaces: Vec<Workspace>,
     date_group_1: DateGroup,
     date_group_2: DateGroup,
+    internet: Internet,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -120,6 +124,11 @@ fn main() {
         (String::from("PAR"), chrono_tz::Europe::Paris),
         (String::from("ICN"), chrono_tz::Asia::Seoul),
     ]);
+    debounce(
+        PathBuf::from("check_internet.json"),
+        Duration::from_secs(10),
+        || serde_json::to_string(&have_internet()).unwrap(),
+    );
     let output = Output {
         spaces: workspaces,
         date_group_1,

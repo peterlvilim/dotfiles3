@@ -56,7 +56,25 @@ map("n", "<c-y>", ":tabnext<CR>", {desc = "Next tab"})
 map("t", "<c-t>", [[<C-\><C-n>:tabprev<CR>]], {desc = "Previous tab"})
 map("t", "<c-y>", [[<C-\><C-n>:tabnext<CR>]], {desc = "Next tab"})
 
-map("n", "<leader>t", ":terminal<CR>", {desc = "Launch terminal"})
+-- map("n", "<leader>t", ":terminal<CR>", {desc = "Launch terminal"})
+function LaunchTerminal()
+    -- Prompt the user for the terminal buffer name
+    local name = vim.fn.input('Terminal name: ')
+
+    -- Create a new terminal buffer
+    vim.cmd('terminal')
+
+    -- Get the current terminal buffer number
+    local term_bufnr = vim.fn.bufnr()
+
+    -- Set the terminal buffer's name to the specified name
+    vim.api.nvim_buf_set_name(term_bufnr, "term://" .. name)
+
+    -- Switch to the new terminal buffer
+    vim.cmd('buffer ' .. term_bufnr)
+end
+map("n", "<leader>t", ":lua LaunchTerminal()<CR>", {desc = "Launch terminal"})
+
 local terminal_group = vim.api.nvim_create_augroup("neovim_terminal",
                                                    {clear = true})
 vim.api.nvim_create_autocmd("TermEnter", {
@@ -116,3 +134,5 @@ map("t", "<C-u>", [[<C-\><C-n><C-u>]],
     {desc = "scroll up by a page in terminal"})
 map("t", "<C-f>", [[<C-\><C-n><C-f>]],
     {desc = "scroll down by a page in terminal"})
+
+map("n", "<C-q>", ":bd<CR>", {desc = "close current buffer"})

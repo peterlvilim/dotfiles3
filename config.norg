@@ -1,5 +1,5 @@
 - (-) tab line improvements
--- (x) show location
+-- (x) show working directory
 -- ( ) how to keep more than four rust windows open
 - ( ) formatting
 -- ( ) fix cwd detection
@@ -10,6 +10,8 @@
 -- ( ) debug failure to give errors
 -- ( ) debounce 
 -- ( ) handle failure if cargo.toml changes
+-- clippy with code actions for rust analyster
+--- probably just need LspRestart
 - ( ) tree sitter
 -- ( ) get info view working
 - ( ) solarized
@@ -20,7 +22,7 @@
 - ( ) fzf
 -- ( ) man pages and docs?
 -- ( ) jump by relative path
--- ( ) nativate by hunk
+-- ( ) natigate by hunk
 -- ( ) configure chafa
 -- ( ) fix terminal auto complete
 -- create file
@@ -35,15 +37,15 @@
 - ( ) nvim ui show or not
 - (x) name firefox tabs
 - ( ) manage firefox tabs with simple tabs thing
-- test out tridactyl tab management
--- doesn't work out due not being able to share groups between windows? but is that problem?
--- tab loading on startup?
+- (_) test out tridactyl tab management
+-- (_) doesn't work out due not being able to share groups between windows? but is that problem? doesnt work
+-- (_) tab loading on startup?
 - (x) menu for workspaces
 - (x) browser and terminal in same space
 - ( ) share language servers?
 - ( ) share nvim buffers
 - ( ) auto load yabai
-- ( ) auto place windows
+- ( ) auto place windows!
 - ( ) session management for firefox and nvim-share
 - ( ) share rust between cargo and rust-analyzer or do separate builds
 - ( ) quince no recompile
@@ -58,11 +60,22 @@
 -- (x) current workspace and name
 -- app of current workspace
 -- (x) current time
+-- highlight local time zone?
+-- gcal next meeting and agenda view for day?
 -- current task?
 -- network state
 -- vpn state
--- re-render bar on state change of label
+-- re-render bar on state change of label otherwise once per second?
 -- slack unread
+-- debounce
+-- publish of some sort instead of build with cargo release?
+-- separate dir for rust?
+-- redesign
+--- single instance crate
+--- rocket http server
+--- make get from ubersitch
+--- separate thread that runs at least every x seconds and puts output into mutex
+--- protobuft sharing?
 - neorg
 -- agenda view
 -- todo for traces improvements
@@ -81,34 +94,27 @@
 --- (x) cmd+jk to change orientation of windows
 --- (x) rename support
 -- show number of windows in tab line? maybe icons?
--- windows
---- auto dump new windows to some space
---- open -N menu for new apps
---- option
---- move to space
---- move from space
---- balance or expand sizes
---- (x) option hl to move between
-
--- buffers and browser tabs
---- ctrl
 - record all brew commands
-
 - launcher
 -- (x) full menu of every option then filter instead of multiple sub menus
 -- (x) new app
--- push to space
+-- push to space!
 -- (x) grab from space
 -- firefox tabs
+--- constantly dump tabs to file via js script
+--- mine file for tabs and support that to jump
 -- vim buffers
--- jump to window
+--- use neovim remote to list buffers
+--- get terminal window
+--- switch to kitty and use kitty to control
+-- jump to window!
 -- one launcher type key per type (space vs window launcher?)
--- close space
--- close window
--- close tab or buffer
+-- (x) close space
+-- (x) close window
+-- (x) close tab or buffer
 
 
-- fix background color for wallpaper
+- (x) fix background color for wallpaper
 - no shadows for windows
 - how to handle more than 10 workspaces and trees of workspaces?
 -- maybe do command plus some other key for over 10
@@ -116,3 +122,5 @@
 
 - hiding and showing windows for space reasons?
 - reconfigure vim into common split configs easily?
+- (x) set terminal title fia file command (hot to hotkey?)
+- (x) disable neo-tree

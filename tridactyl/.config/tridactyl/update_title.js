@@ -8,8 +8,14 @@ function update_title() {
       })
       .then((group) => {
         const group_title = group.group.title;
-        if (!document.title.startsWith(group_title)) {
-          document.title = group_title + " - " + document.title;
+        if (!document.title.startsWith(group_title + " |")) {
+          if (document.title.includes("|")) {
+            const parts = document.title.split("|");
+            const title = parts.slice(1).join("");
+            document.title = group_title + " | " + title;
+          } else {
+            document.title = group_title + " | " + document.title;
+          }
         }
       });
   });
