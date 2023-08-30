@@ -7,8 +7,14 @@ brew install exa
 brew install svn
 brew install bat
 brew Tap homebrew/cask-fonts && brew install --cask font-source-code-pro
-brew install rust-analyzer
+brew install rust
 brew install rustup
 brew install ripgrep
 brew install fd
 brew install just
+brew install python3
+#https://www.nerdfonts.com/font-downloads
+brew install --cask ubersicht
+brew install koekeishiya/formulae/yabai
+brew install yarn
+brew install npm

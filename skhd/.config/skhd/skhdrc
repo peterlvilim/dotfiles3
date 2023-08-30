@@ -12,7 +12,6 @@ cmd + shift - h: yabai -m space --move prev
 cmd + shift - l: yabai -m space --move next
 
 # rotate
-cmd - j: yabai -m space --rotate 90
 
 ### Windows
 # focus
@@ -27,6 +26,8 @@ alt + shift - q: /Users/pvilim/.config/yabai/destroy_window.py
 # move
 alt + shift - h: yabai -m window --swap prev
 alt + shift - l: yabai -m window --swap next
+alt + shift - j: yabai -m space --rotate 90
+alt + shift - k: yabai -m space --rotate 90
 
 # jump
 cmd - 1: yabai -m space --focus 1

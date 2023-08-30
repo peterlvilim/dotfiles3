@@ -31,3 +31,11 @@ new MutationObserver(function (mutations) {
 
 // on load
 update_title();
+//js browserBg.tabs.query({}).then((tabs) => tri.native.write("/tmp/tabs", JSON.stringify(tabs)))
+// doc load thing that calls function with url
+// url check for special one
+// if special one then loop and read /tmp/tridactyl_cmd location
+// read in and split on \n then truncate
+// run command and output to /tmp/tridactyl_output
+// whole thing involves some sleeps but oh well
+// can use ping timestamps for comms

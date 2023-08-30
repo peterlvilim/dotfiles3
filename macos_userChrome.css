@@ -1,3 +1,5 @@
+// toolkit.legacyUserProfileCustomizations.stylesheets = true
+// ~/Library/Application Support/Firefox/Profiles/z1b5rjy7.default-release/chrome
 #nav-bar, #urlbar-container, #searchbar { visibility: collapse !important; }
 /* hides the native tabs */
 #TabsToolbar {

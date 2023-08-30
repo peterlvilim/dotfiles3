@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
 pub struct Internet {
-    connected: bool,
+    pub connected: bool,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -32,7 +32,7 @@ pub fn have_internet() -> Internet {
             } else {
                 Internet { connected: false }
             }
-        }
+        },
         Err(_) => Internet { connected: false },
     }
 }

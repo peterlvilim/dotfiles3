@@ -93,7 +93,7 @@ struct Workspace {
 
 fn get_workspaces() -> Vec<Workspace> {
     let mut workspaces = vec![];
-    let output = &Command::new("/usr/local/bin/yabai")
+    let output = &Command::new("/opt/homebrew/bin/yabai")
         .args(&["-m", "query", "--spaces"])
         .output()
         .expect("failed to execute process")
@@ -104,11 +104,7 @@ fn get_workspaces() -> Vec<Workspace> {
         let index = space.get("index").unwrap().as_u64().unwrap();
         let label = space.get("label").unwrap().as_str().unwrap().to_string();
         let enabled = space.get("is-visible").unwrap().as_bool().unwrap();
-        workspaces.push(Workspace {
-            index,
-            label,
-            enabled,
-        });
+        workspaces.push(Workspace { index, label, enabled });
     }
     return workspaces;
 }
@@ -124,15 +120,14 @@ fn main() {
         (String::from("PAR"), chrono_tz::Europe::Paris),
         (String::from("ICN"), chrono_tz::Asia::Seoul),
     ]);
-    debounce(
-        PathBuf::from("check_internet.json"),
-        Duration::from_secs(10),
-        || serde_json::to_string(&have_internet()).unwrap(),
-    );
+    debounce(PathBuf::from("check_internet.json"), Duration::from_secs(10), || {
+        serde_json::to_string(&have_internet()).unwrap()
+    });
     let output = Output {
         spaces: workspaces,
         date_group_1,
         date_group_2,
+        internet: Internet { connected: true },
     };
     println!("{}", serde_json::to_string(&output).unwrap())
 }

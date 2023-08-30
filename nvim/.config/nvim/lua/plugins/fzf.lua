@@ -51,6 +51,11 @@ return {
             "<leader>fe",
             function() require("fzf-lua").diagnostics_workspace() end,
             desc = "lsp workspace diagnostics"
+        },
+        {
+            "<c-b>",
+            function() require("fzf-lua").buffers() end,
+            desc = "Open buffers"
         }
     }
 }

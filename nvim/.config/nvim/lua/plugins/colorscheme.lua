@@ -1,7 +1,6 @@
 return {
     {"peterlvilim/solarized.nvim"}, {
         "peterlvilim/solarized.nvim",
-        dir = "/Users/pvilim/solarized.nvim",
         lazy = false,
         config = function()
             vim.cmd("set background=dark")

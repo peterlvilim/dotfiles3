@@ -5,3 +5,5 @@
 	email = pvilim@dropbox.com
 [dbx]
 	messagedisplayversion = 1
+[includeIf "hasconfig:remote.*.url:git@github.com:dropbox-internal/*"]
+	path = .gitconfig-dbx

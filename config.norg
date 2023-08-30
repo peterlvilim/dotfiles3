@@ -1,3 +1,5 @@
+- re-write this doc
+
 - (-) tab line improvements
 -- (x) show working directory
 -- ( ) how to keep more than four rust windows open
@@ -8,7 +10,7 @@
 -- ( ) fix feature flags for FP
 -- ( ) fix error when loading lua files
 -- ( ) debug failure to give errors
--- ( ) debounce 
+-- ( ) debounce
 -- ( ) handle failure if cargo.toml changes
 -- clippy with code actions for rust analyster
 --- probably just need LspRestart
@@ -45,7 +47,7 @@
 - ( ) share language servers?
 - ( ) share nvim buffers
 - ( ) auto load yabai
-- ( ) auto place windows!
+- (x) auto place windows
 - ( ) session management for firefox and nvim-share
 - ( ) share rust between cargo and rust-analyzer or do separate builds
 - ( ) quince no recompile
@@ -96,9 +98,10 @@
 -- show number of windows in tab line? maybe icons?
 - record all brew commands
 - launcher
+-- create 10 workspace on launch and set names (todo, zoom, config, messengers)
 -- (x) full menu of every option then filter instead of multiple sub menus
 -- (x) new app
--- push to space!
+-- (x) push to space
 -- (x) grab from space
 -- firefox tabs
 --- constantly dump tabs to file via js script
@@ -107,11 +110,14 @@
 --- use neovim remote to list buffers
 --- get terminal window
 --- switch to kitty and use kitty to control
--- jump to window!
+-- (x) jump to window
 -- one launcher type key per type (space vs window launcher?)
 -- (x) close space
 -- (x) close window
 -- (x) close tab or buffer
+-- restart computer
+-- toggle amphetamine
+
 
 
 - (x) fix background color for wallpaper
@@ -124,3 +130,28 @@
 - reconfigure vim into common split configs easily?
 - (x) set terminal title fia file command (hot to hotkey?)
 - (x) disable neo-tree
+- (x) yabai startup
+- workspaces
+-- add config
+-- make a cder
+- ubersitch startup
+- comm channel for tridactyl
+- rename terminal DONE
+
+- jumping around terminal dir locations
+- running bzl commands
+- seeing file list, new files
+- restrict scope of search to open
+- install prettier
+- jumping common file sets
+- terminal per project
+- ctrl+b from terminal
+- fix norg
+- one page at a time for results
+- force workspace positions
+  lua formatter
+
+- https://github.com/CamdenClark/flyboy
+- https://github.com/aznhe21/actions-preview.nvim
+- https://github.com/linrongbin16/fzfx.nvim
+- https://github.com/ibhagwan/fzf-lua/wiki/Advanced#fzf-exec-cont-tbl
